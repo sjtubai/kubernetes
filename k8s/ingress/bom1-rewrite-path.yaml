@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: bom1-rewrite-path
+config:
+  replace:
+    uri: /SearchSupplier
+plugin: request-transformer

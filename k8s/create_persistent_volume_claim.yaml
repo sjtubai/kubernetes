@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pv00-claim-0
+spec:
+  storageClassName: manual
+  volumeName: pv00
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Mi

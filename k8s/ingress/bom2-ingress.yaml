@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bom2-ingress
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/strip-path: 'true'
+    konghq.com/plugins: bom2-rewrite-path
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: /vmcbom/v1/GetUserPermission
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: bom2
+            port:
+              number: 80
