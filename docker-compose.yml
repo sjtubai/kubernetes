@@ -1,0 +1,25 @@
+version: '2'
+services:
+  bom1:
+    image: bom1:latest
+    container_name: BOM1
+    mem_limit: 300mb
+    ports:
+      - "81:80"
+    volumes:
+      - /mnt:/mnt
+    environment:
+      SPRING_PROFILES_ACTIVE: pcs
+      SPRING_CONFIG_LOCATION: /mnt/property/vmcbom-services-public-k6-apiv1/application-pcs.properties
+
+  bom2:
+    image: bom2:latest
+    container_name: BOM2
+    mem_limit: 300mb
+    ports:
+      - "80:80"
+    volumes:
+      - /mnt:/mnt
+    environment:
+      SPRING_PROFILES_ACTIVE: pcs
+      SPRING_CONFIG_LOCATION: /mnt/property/vmcbom-services-public-k6-v6-apiv1/application-pcs.properties

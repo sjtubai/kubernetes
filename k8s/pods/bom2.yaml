@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   annotations:
   labels:
-    app: bom2
+    app: vmcbom-services-public-k6-v6-apiv1
   name: bom2-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bom2
+      app: vmcbom-services-public-k6-v6-apiv1
   strategy:
     type: Recreate
   template:
     metadata:
       annotations:
       labels:
-        app: bom2
+        app: vmcbom-services-public-k6-v6-apiv1
     spec:
       containers:
       - env:
@@ -24,14 +24,14 @@ spec:
           value: /mnt/property/vmcbom-services-public-k6-v6-apiv1/application-pcs.properties
         - name: SPRING_PROFILES_ACTIVE
           value: pcs
-        image: leixu1206/bom2:latest
-        imagePullPolicy: ""
-        name: bom2
+        image: vmcbom-services-public-k6-v6-apiv1
+        imagePullPolicy: Never
+        name: vmcbom-services-public-k6-v6-apiv1
         ports:
         - containerPort: 80
         resources:
           limits:
-            memory: "1Gi"
+            memory: "800Mi"
         volumeMounts:
         - mountPath: "/mnt"
           name: mnt-volume
